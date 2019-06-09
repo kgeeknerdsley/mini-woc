@@ -21,12 +21,13 @@ namespace mwoc_programmer
 			InitializeComponent();
 		}
 
-
+		//runs when timer button is held
 		private void clickTimer_MouseDown(object sender, MouseEventArgs e)
 		{
 			watch.Start();
 		}
 
+		//runs when timer button is released
 		private void clickTimer_MouseUp(object sender, MouseEventArgs e)
 		{
 			watch.Stop();

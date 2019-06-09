@@ -31,7 +31,7 @@
 			this.clickTimer = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.stopwatchText = new System.Windows.Forms.TextBox();
-			this.listView1 = new System.Windows.Forms.ListView();
+			this.cmdViewer = new System.Windows.Forms.ListView();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
@@ -63,13 +63,13 @@
 			this.stopwatchText.Size = new System.Drawing.Size(100, 20);
 			this.stopwatchText.TabIndex = 2;
 			// 
-			// listView1
+			// cmdViewer
 			// 
-			this.listView1.Location = new System.Drawing.Point(830, 12);
-			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(275, 605);
-			this.listView1.TabIndex = 3;
-			this.listView1.UseCompatibleStateImageBehavior = false;
+			this.cmdViewer.Location = new System.Drawing.Point(830, 12);
+			this.cmdViewer.Name = "cmdViewer";
+			this.cmdViewer.Size = new System.Drawing.Size(275, 605);
+			this.cmdViewer.TabIndex = 3;
+			this.cmdViewer.UseCompatibleStateImageBehavior = false;
 			// 
 			// panel1
 			// 
@@ -87,7 +87,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1117, 629);
 			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.listView1);
+			this.Controls.Add(this.cmdViewer);
 			this.Name = "Form1";
 			this.Text = "Form1";
 			this.panel1.ResumeLayout(false);
@@ -101,8 +101,8 @@
 		private System.Windows.Forms.Button clickTimer;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox stopwatchText;
-		private System.Windows.Forms.ListView listView1;
 		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.ListView cmdViewer;
 	}
 }
 

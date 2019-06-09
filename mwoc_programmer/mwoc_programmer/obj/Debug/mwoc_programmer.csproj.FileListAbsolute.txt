@@ -8,3 +8,13 @@ C:\Users\Kevin\Desktop\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\mwoc_p
 C:\Users\Kevin\Desktop\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\mwoc_programmer.csproj.CoreCompileInputs.cache
 C:\Users\Kevin\Desktop\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\mwoc_programmer.exe
 C:\Users\Kevin\Desktop\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\mwoc_programmer.pdb
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\bin\Debug\mwoc_programmer.exe.config
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\bin\Debug\mwoc_programmer.exe
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\bin\Debug\mwoc_programmer.pdb
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\mwoc_programmer.csprojAssemblyReference.cache
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\mwoc_programmer.Form1.resources
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\mwoc_programmer.Properties.Resources.resources
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\mwoc_programmer.csproj.GenerateResource.cache
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\mwoc_programmer.csproj.CoreCompileInputs.cache
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\mwoc_programmer.exe
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\mwoc_programmer.pdb
