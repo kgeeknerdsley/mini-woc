@@ -48,13 +48,13 @@ namespace mwoc_programmer
 
 		private void manualAddToList_Click(object sender, EventArgs e)
 		{
-			//cmdViewer.Columns.Add("Test header", 100);
+			cmdViewer.Rows.Add(manual_TimeBox.Text, manual_PowerBox.Text, manual_ColorBox.Text);
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			List<int> testList = new List<int>() { 1, 2, 3 };
-			cmdViewer.Rows.Add(testList);
+			//cmdViewer.Rows[0].Cells[0].Value = testList[0];
 
 			
 			//stopwatchText.Text = cmdViewer.Rows[0].Cells[2].Value.ToString();
