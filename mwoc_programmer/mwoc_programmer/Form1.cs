@@ -31,10 +31,6 @@ namespace mwoc_programmer
 			InitializeComponent();
 		}
 
-		private void Form1_Load(object sender, EventArgs e)
-		{
-			
-		}
 
 		//runs when timer button is held
 		private void clickTimer_MouseDown(object sender, MouseEventArgs e)
@@ -52,12 +48,16 @@ namespace mwoc_programmer
 
 		private void manualAddToList_Click(object sender, EventArgs e)
 		{
-			//cmdViewer.
+			//cmdViewer.Columns.Add("Test header", 100);
 		}
 
-		private void Form1_Load_1(object sender, EventArgs e)
+		private void Form1_Load(object sender, EventArgs e)
 		{
+			List<int> testList = new List<int>() { 1, 2, 3 };
+			cmdViewer.Rows.Add(testList);
 
+			
+			//stopwatchText.Text = cmdViewer.Rows[0].Cells[2].Value.ToString();
 		}
 	}
 }

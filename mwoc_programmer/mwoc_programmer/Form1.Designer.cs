@@ -28,22 +28,22 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Power ");
-			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Time");
 			this.clickTimer = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.stopwatchText = new System.Windows.Forms.TextBox();
-			this.cmdViewer = new System.Windows.Forms.ListView();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.HeaderTest = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.manualAddToList = new System.Windows.Forms.Button();
+			this.cmdViewer = new System.Windows.Forms.DataGridView();
+			this.timeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.powerCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.cmdViewer)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// clickTimer
@@ -72,23 +72,6 @@
 			this.stopwatchText.Name = "stopwatchText";
 			this.stopwatchText.Size = new System.Drawing.Size(100, 20);
 			this.stopwatchText.TabIndex = 2;
-			// 
-			// cmdViewer
-			// 
-			this.cmdViewer.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.HeaderTest});
-			listViewGroup2.Header = "ListViewGroup";
-			listViewGroup2.Name = "listViewGroup1";
-			this.cmdViewer.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
-			this.cmdViewer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem4});
-			this.cmdViewer.Location = new System.Drawing.Point(830, 12);
-			this.cmdViewer.Name = "cmdViewer";
-			this.cmdViewer.Size = new System.Drawing.Size(275, 605);
-			this.cmdViewer.TabIndex = 3;
-			this.cmdViewer.UseCompatibleStateImageBehavior = false;
 			// 
 			// panel1
 			// 
@@ -144,10 +127,6 @@
 			this.comboBox1.Size = new System.Drawing.Size(121, 21);
 			this.comboBox1.TabIndex = 10;
 			// 
-			// HeaderTest
-			// 
-			this.HeaderTest.Text = "Test Header";
-			// 
 			// manualAddToList
 			// 
 			this.manualAddToList.Location = new System.Drawing.Point(253, 35);
@@ -158,11 +137,40 @@
 			this.manualAddToList.UseVisualStyleBackColor = true;
 			this.manualAddToList.Click += new System.EventHandler(this.manualAddToList_Click);
 			// 
+			// cmdViewer
+			// 
+			this.cmdViewer.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+			this.cmdViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.cmdViewer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.timeColumn,
+            this.powerCol,
+            this.colorColumn});
+			this.cmdViewer.Location = new System.Drawing.Point(809, 12);
+			this.cmdViewer.Name = "cmdViewer";
+			this.cmdViewer.Size = new System.Drawing.Size(351, 628);
+			this.cmdViewer.TabIndex = 13;
+			// 
+			// timeColumn
+			// 
+			this.timeColumn.HeaderText = "Time";
+			this.timeColumn.Name = "timeColumn";
+			// 
+			// powerCol
+			// 
+			this.powerCol.HeaderText = "Power";
+			this.powerCol.Name = "powerCol";
+			// 
+			// colorColumn
+			// 
+			this.colorColumn.HeaderText = "Color";
+			this.colorColumn.Name = "colorColumn";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1117, 629);
+			this.ClientSize = new System.Drawing.Size(1172, 652);
+			this.Controls.Add(this.cmdViewer);
 			this.Controls.Add(this.manualAddToList);
 			this.Controls.Add(this.comboBox1);
 			this.Controls.Add(this.label5);
@@ -170,12 +178,12 @@
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.cmdViewer);
 			this.Name = "Form1";
 			this.Text = "Form1";
-			//this.Load += new System.EventHandler(this.Form1_Load_1);
+			this.Load += new System.EventHandler(this.Form1_Load);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.cmdViewer)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -187,14 +195,16 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox stopwatchText;
 		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.ListView cmdViewer;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.ComboBox comboBox1;
-		private System.Windows.Forms.ColumnHeader HeaderTest;
 		private System.Windows.Forms.Button manualAddToList;
+		private System.Windows.Forms.DataGridView cmdViewer;
+		private System.Windows.Forms.DataGridViewTextBoxColumn timeColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn powerCol;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colorColumn;
 	}
 }
 
