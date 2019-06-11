@@ -22,6 +22,7 @@ namespace mwoc_programmer
 		}
 
 		//runs when timer button is held
+		//test comment to make sure git is working
 		private void clickTimer_MouseDown(object sender, MouseEventArgs e)
 		{
 			watch.Start();
