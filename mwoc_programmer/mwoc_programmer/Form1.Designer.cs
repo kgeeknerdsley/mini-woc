@@ -28,8 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -37,6 +37,10 @@
 			this.manual_ColorBox = new System.Windows.Forms.ComboBox();
 			this.manual_AddBtn = new System.Windows.Forms.Button();
 			this.cmdViewer = new System.Windows.Forms.DataGridView();
+			this.totalTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.timeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.powerCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.stopwatchText = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.clickTimer = new System.Windows.Forms.Button();
@@ -44,10 +48,6 @@
 			this.manual_TimeBox = new System.Windows.Forms.TextBox();
 			this.manual_PowerBox = new System.Windows.Forms.TextBox();
 			this.outputToFileBtn = new System.Windows.Forms.Button();
-			this.totalTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.timeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.powerCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.colorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.patternBtnBox = new System.Windows.Forms.Button();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
@@ -55,6 +55,15 @@
 			this.patternColorBox = new System.Windows.Forms.ComboBox();
 			this.patternPowerBox = new System.Windows.Forms.TextBox();
 			this.patternListBtn = new System.Windows.Forms.Button();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.gradTimeBox = new System.Windows.Forms.TextBox();
+			this.gradRiseRBtn = new System.Windows.Forms.RadioButton();
+			this.gradFallRBtn = new System.Windows.Forms.RadioButton();
+			this.label12 = new System.Windows.Forms.Label();
+			this.gradPowerBox = new System.Windows.Forms.TextBox();
+			this.label13 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.cmdViewer)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -126,18 +135,41 @@
             this.timeColumn,
             this.powerCol,
             this.colorColumn});
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.cmdViewer.DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.cmdViewer.DefaultCellStyle = dataGridViewCellStyle6;
 			this.cmdViewer.Location = new System.Drawing.Point(848, 12);
 			this.cmdViewer.Name = "cmdViewer";
 			this.cmdViewer.Size = new System.Drawing.Size(312, 594);
 			this.cmdViewer.TabIndex = 13;
+			// 
+			// totalTimeColumn
+			// 
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+			this.totalTimeColumn.DefaultCellStyle = dataGridViewCellStyle5;
+			this.totalTimeColumn.HeaderText = "Total Time";
+			this.totalTimeColumn.Name = "totalTimeColumn";
+			this.totalTimeColumn.ToolTipText = "Total show time in seconds";
+			// 
+			// timeColumn
+			// 
+			this.timeColumn.HeaderText = "Time";
+			this.timeColumn.Name = "timeColumn";
+			// 
+			// powerCol
+			// 
+			this.powerCol.HeaderText = "Power";
+			this.powerCol.Name = "powerCol";
+			// 
+			// colorColumn
+			// 
+			this.colorColumn.HeaderText = "Color";
+			this.colorColumn.Name = "colorColumn";
 			// 
 			// stopwatchText
 			// 
@@ -197,29 +229,7 @@
 			this.outputToFileBtn.TabIndex = 17;
 			this.outputToFileBtn.Text = "Output show to file";
 			this.outputToFileBtn.UseVisualStyleBackColor = true;
-			// 
-			// totalTimeColumn
-			// 
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-			this.totalTimeColumn.DefaultCellStyle = dataGridViewCellStyle3;
-			this.totalTimeColumn.HeaderText = "Total Time";
-			this.totalTimeColumn.Name = "totalTimeColumn";
-			this.totalTimeColumn.ToolTipText = "Total show time in seconds";
-			// 
-			// timeColumn
-			// 
-			this.timeColumn.HeaderText = "Time";
-			this.timeColumn.Name = "timeColumn";
-			// 
-			// powerCol
-			// 
-			this.powerCol.HeaderText = "Power";
-			this.powerCol.Name = "powerCol";
-			// 
-			// colorColumn
-			// 
-			this.colorColumn.HeaderText = "Color";
-			this.colorColumn.Name = "colorColumn";
+			this.outputToFileBtn.Click += new System.EventHandler(this.outputToFileBtn_Click);
 			// 
 			// patternBtnBox
 			// 
@@ -289,11 +299,100 @@
 			this.patternListBtn.UseVisualStyleBackColor = true;
 			this.patternListBtn.Click += new System.EventHandler(this.patternListBtn_Click);
 			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(15, 298);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(89, 13);
+			this.label10.TabIndex = 25;
+			this.label10.Text = "Gradual Rise/Fall";
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(39, 315);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(58, 13);
+			this.label11.TabIndex = 26;
+			this.label11.Text = "Time (ms): ";
+			// 
+			// gradTimeBox
+			// 
+			this.gradTimeBox.Location = new System.Drawing.Point(100, 315);
+			this.gradTimeBox.Name = "gradTimeBox";
+			this.gradTimeBox.Size = new System.Drawing.Size(34, 20);
+			this.gradTimeBox.TabIndex = 27;
+			// 
+			// gradRiseRBtn
+			// 
+			this.gradRiseRBtn.AutoSize = true;
+			this.gradRiseRBtn.Checked = true;
+			this.gradRiseRBtn.Location = new System.Drawing.Point(33, 340);
+			this.gradRiseRBtn.Name = "gradRiseRBtn";
+			this.gradRiseRBtn.Size = new System.Drawing.Size(46, 17);
+			this.gradRiseRBtn.TabIndex = 29;
+			this.gradRiseRBtn.TabStop = true;
+			this.gradRiseRBtn.Text = "Rise";
+			this.gradRiseRBtn.UseVisualStyleBackColor = true;
+			// 
+			// gradFallRBtn
+			// 
+			this.gradFallRBtn.AutoSize = true;
+			this.gradFallRBtn.Location = new System.Drawing.Point(88, 341);
+			this.gradFallRBtn.Name = "gradFallRBtn";
+			this.gradFallRBtn.Size = new System.Drawing.Size(41, 17);
+			this.gradFallRBtn.TabIndex = 30;
+			this.gradFallRBtn.TabStop = true;
+			this.gradFallRBtn.Text = "Fall";
+			this.gradFallRBtn.UseVisualStyleBackColor = true;
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(28, 361);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(66, 13);
+			this.label12.TabIndex = 31;
+			this.label12.Text = "Max Power: ";
+			// 
+			// gradPowerBox
+			// 
+			this.gradPowerBox.Location = new System.Drawing.Point(100, 361);
+			this.gradPowerBox.Name = "gradPowerBox";
+			this.gradPowerBox.Size = new System.Drawing.Size(47, 20);
+			this.gradPowerBox.TabIndex = 32;
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Location = new System.Drawing.Point(35, 389);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(44, 13);
+			this.label13.TabIndex = 33;
+			this.label13.Text = "Speed: ";
+			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(92, 389);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(33, 20);
+			this.textBox1.TabIndex = 34;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1172, 652);
+			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.label13);
+			this.Controls.Add(this.gradPowerBox);
+			this.Controls.Add(this.label12);
+			this.Controls.Add(this.gradFallRBtn);
+			this.Controls.Add(this.gradRiseRBtn);
+			this.Controls.Add(this.gradTimeBox);
+			this.Controls.Add(this.label11);
+			this.Controls.Add(this.label10);
 			this.Controls.Add(this.patternListBtn);
 			this.Controls.Add(this.patternPowerBox);
 			this.Controls.Add(this.patternColorBox);
@@ -350,6 +449,15 @@
 		private System.Windows.Forms.ComboBox patternColorBox;
 		private System.Windows.Forms.TextBox patternPowerBox;
 		private System.Windows.Forms.Button patternListBtn;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.TextBox gradTimeBox;
+		private System.Windows.Forms.RadioButton gradRiseRBtn;
+		private System.Windows.Forms.RadioButton gradFallRBtn;
+		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.TextBox gradPowerBox;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.TextBox textBox1;
 	}
 }
 

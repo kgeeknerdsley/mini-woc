@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.IO;
 
 namespace mwoc_programmer
 {
@@ -16,20 +17,15 @@ namespace mwoc_programmer
 
 		Stopwatch watch = new Stopwatch();
 
-		//lists that hold the commands before they're added to the final arrays
-		List<int> tempTime = new List<int>();
-		List<int> tempPower = new List<int>();
-		List<int> tempColor = new List<int>();
-
-		//final lists that will be printed out at the end
-		List<int> time = new List<int>();
-		List<int> power = new List<int>();
-		List<int> color = new List<int>();
-
 		List<long> patternTime = new List<long>();
 		List<int> patternPower = new List<int>();
 
+		string printCmd;
+		string convertedColor;
+
 		double totalShowTime = 0;
+
+		string outputPath = @"c:\users\kevin\desktop\mini-woc\show data\outputShow.dat";
 
 		
 
@@ -149,6 +145,55 @@ namespace mwoc_programmer
 
 			patternTime.Clear();
 			patternPower.Clear();
+		}
+
+		private void outputToFileBtn_Click(object sender, EventArgs e)
+		{
+			if(!File.Exists(outputPath)) //if file does not exist
+			{
+				MessageBox.Show("File does not exist at path. Please set path destination or create file. \n" + "Path: " +  outputPath);
+			} else
+			{
+
+				File.WriteAllText(outputPath, string.Empty); //clears the file before writing new show data
+
+				using (System.IO.StreamWriter file =
+					new System.IO.StreamWriter(outputPath, true))
+				{
+
+					for (int i = 0; i < cmdViewer.RowCount-1; i++) //-1 because it counts the blank row
+					{
+
+						switch(cmdViewer.Rows[i].Cells[3].Value)
+						{
+							case "Red":
+								convertedColor = "0";
+								break;
+							case "Blue":
+								convertedColor = "1";
+								break;
+							case "Green":
+								convertedColor = "2";
+								break;
+							case "Yellow":
+								convertedColor = "3";
+								break;
+							default:
+								convertedColor = "0"; //this should never happen since it's a dropbox but this catches any trouble
+								break;
+						}
+
+						printCmd = 
+							cmdViewer.Rows[i].Cells[1].Value.ToString() + " " + //time value
+							cmdViewer.Rows[i].Cells[2].Value.ToString() + " " + //power value
+							convertedColor; //color value
+
+						file.WriteLine(printCmd);
+					}
+				}
+
+				cmdViewer.Rows.Clear();
+			}
 		}
 	}
 }
