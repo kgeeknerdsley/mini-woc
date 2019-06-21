@@ -28,8 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -65,11 +65,22 @@
 			this.gradPowerBox = new System.Windows.Forms.TextBox();
 			this.label13 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
+			this.pumpImage = new System.Windows.Forms.PictureBox();
+			this.waterImg_Low = new System.Windows.Forms.PictureBox();
+			this.waterImg_Med = new System.Windows.Forms.PictureBox();
+			this.waterImg_High = new System.Windows.Forms.PictureBox();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.pumpColorImg = new System.Windows.Forms.PictureBox();
+			this.startVisualizerBtn = new System.Windows.Forms.Button();
+			this.timeIndicatorImg = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.cmdViewer)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pumpImage)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.waterImg_Low)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.waterImg_Med)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.waterImg_High)).BeginInit();
+			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pumpColorImg)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.timeIndicatorImg)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label2
@@ -140,14 +151,14 @@
             this.timeColumn,
             this.powerCol,
             this.colorColumn});
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.cmdViewer.DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.cmdViewer.DefaultCellStyle = dataGridViewCellStyle2;
 			this.cmdViewer.Location = new System.Drawing.Point(848, 12);
 			this.cmdViewer.Name = "cmdViewer";
 			this.cmdViewer.Size = new System.Drawing.Size(312, 594);
@@ -155,8 +166,8 @@
 			// 
 			// totalTimeColumn
 			// 
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-			this.totalTimeColumn.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+			this.totalTimeColumn.DefaultCellStyle = dataGridViewCellStyle1;
 			this.totalTimeColumn.HeaderText = "Total Time";
 			this.totalTimeColumn.Name = "totalTimeColumn";
 			this.totalTimeColumn.ToolTipText = "Total show time in seconds";
@@ -384,32 +395,93 @@
 			this.textBox1.Size = new System.Drawing.Size(33, 20);
 			this.textBox1.TabIndex = 34;
 			// 
-			// pictureBox1
+			// pumpImage
 			// 
-			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-			this.pictureBox1.Location = new System.Drawing.Point(701, 545);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(80, 61);
-			this.pictureBox1.TabIndex = 35;
-			this.pictureBox1.TabStop = false;
+			this.pumpImage.Image = ((System.Drawing.Image)(resources.GetObject("pumpImage.Image")));
+			this.pumpImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("pumpImage.InitialImage")));
+			this.pumpImage.Location = new System.Drawing.Point(58, 135);
+			this.pumpImage.Name = "pumpImage";
+			this.pumpImage.Size = new System.Drawing.Size(80, 61);
+			this.pumpImage.TabIndex = 35;
+			this.pumpImage.TabStop = false;
 			// 
-			// pictureBox2
+			// waterImg_Low
 			// 
-			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(701, 502);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(25, 25);
-			this.pictureBox2.TabIndex = 36;
-			this.pictureBox2.TabStop = false;
+			this.waterImg_Low.Image = ((System.Drawing.Image)(resources.GetObject("waterImg_Low.Image")));
+			this.waterImg_Low.Location = new System.Drawing.Point(58, 90);
+			this.waterImg_Low.Name = "waterImg_Low";
+			this.waterImg_Low.Size = new System.Drawing.Size(25, 25);
+			this.waterImg_Low.TabIndex = 36;
+			this.waterImg_Low.TabStop = false;
+			// 
+			// waterImg_Med
+			// 
+			this.waterImg_Med.Image = ((System.Drawing.Image)(resources.GetObject("waterImg_Med.Image")));
+			this.waterImg_Med.Location = new System.Drawing.Point(58, 59);
+			this.waterImg_Med.Name = "waterImg_Med";
+			this.waterImg_Med.Size = new System.Drawing.Size(25, 25);
+			this.waterImg_Med.TabIndex = 37;
+			this.waterImg_Med.TabStop = false;
+			// 
+			// waterImg_High
+			// 
+			this.waterImg_High.Image = ((System.Drawing.Image)(resources.GetObject("waterImg_High.Image")));
+			this.waterImg_High.Location = new System.Drawing.Point(58, 28);
+			this.waterImg_High.Name = "waterImg_High";
+			this.waterImg_High.Size = new System.Drawing.Size(25, 25);
+			this.waterImg_High.TabIndex = 38;
+			this.waterImg_High.TabStop = false;
+			// 
+			// panel1
+			// 
+			this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.panel1.Controls.Add(this.timeIndicatorImg);
+			this.panel1.Controls.Add(this.pumpColorImg);
+			this.panel1.Controls.Add(this.pumpImage);
+			this.panel1.Controls.Add(this.waterImg_Low);
+			this.panel1.Controls.Add(this.waterImg_Med);
+			this.panel1.Controls.Add(this.waterImg_High);
+			this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
+			this.panel1.Location = new System.Drawing.Point(615, 404);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(200, 202);
+			this.panel1.TabIndex = 39;
+			// 
+			// pumpColorImg
+			// 
+			this.pumpColorImg.Image = ((System.Drawing.Image)(resources.GetObject("pumpColorImg.Image")));
+			this.pumpColorImg.Location = new System.Drawing.Point(155, 157);
+			this.pumpColorImg.Name = "pumpColorImg";
+			this.pumpColorImg.Size = new System.Drawing.Size(25, 25);
+			this.pumpColorImg.TabIndex = 39;
+			this.pumpColorImg.TabStop = false;
+			// 
+			// startVisualizerBtn
+			// 
+			this.startVisualizerBtn.Location = new System.Drawing.Point(615, 613);
+			this.startVisualizerBtn.Name = "startVisualizerBtn";
+			this.startVisualizerBtn.Size = new System.Drawing.Size(200, 27);
+			this.startVisualizerBtn.TabIndex = 40;
+			this.startVisualizerBtn.Text = "Start Visualizer";
+			this.startVisualizerBtn.UseVisualStyleBackColor = true;
+			this.startVisualizerBtn.Click += new System.EventHandler(this.startVisualizerBtn_Click);
+			// 
+			// timeIndicatorImg
+			// 
+			this.timeIndicatorImg.Image = ((System.Drawing.Image)(resources.GetObject("timeIndicatorImg.Image")));
+			this.timeIndicatorImg.Location = new System.Drawing.Point(155, 14);
+			this.timeIndicatorImg.Name = "timeIndicatorImg";
+			this.timeIndicatorImg.Size = new System.Drawing.Size(25, 25);
+			this.timeIndicatorImg.TabIndex = 40;
+			this.timeIndicatorImg.TabStop = false;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1172, 652);
-			this.Controls.Add(this.pictureBox2);
-			this.Controls.Add(this.pictureBox1);
+			this.Controls.Add(this.startVisualizerBtn);
+			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label13);
 			this.Controls.Add(this.gradPowerBox);
@@ -444,8 +516,13 @@
 			this.Text = "Mini WoC Programmer";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			((System.ComponentModel.ISupportInitialize)(this.cmdViewer)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pumpImage)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.waterImg_Low)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.waterImg_Med)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.waterImg_High)).EndInit();
+			this.panel1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pumpColorImg)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.timeIndicatorImg)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -486,8 +563,14 @@
 		private System.Windows.Forms.TextBox gradPowerBox;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.PictureBox pictureBox2;
+		private System.Windows.Forms.PictureBox pumpImage;
+		private System.Windows.Forms.PictureBox waterImg_Low;
+		private System.Windows.Forms.PictureBox waterImg_Med;
+		private System.Windows.Forms.PictureBox waterImg_High;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.PictureBox pumpColorImg;
+		private System.Windows.Forms.Button startVisualizerBtn;
+		private System.Windows.Forms.PictureBox timeIndicatorImg;
 	}
 }
 

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.IO;
+using System.Timers;
+using Timer = System.Timers.Timer;
 
 namespace mwoc_programmer
 {
@@ -16,18 +18,26 @@ namespace mwoc_programmer
 	{
 
 		Stopwatch watch = new Stopwatch();
+		Timer visTimer = new Timer();
 
 		List<long> patternTime = new List<long>();
 		List<int> patternPower = new List<int>();
+
+		Bitmap waterCircle = Properties.Resources.watercircle;
+		Bitmap greyCircle = Properties.Resources.greycircle;
+		Bitmap redCircle = Properties.Resources.redcircle;
+		Bitmap blueCircle = Properties.Resources.bluecircle;
+		Bitmap yellowCircle = Properties.Resources.yellowcircle;
+		Bitmap greenCircle = Properties.Resources.greencircle;
 
 		string printCmd;
 		string convertedColor;
 
 		double totalShowTime = 0;
 
-		string outputPath = @"c:\users\kevin\desktop\mini-woc\show data\outputShow.dat";
+		int countdown = 0;
 
-		
+		string outputPath = @"c:\users\kevin\desktop\mini-woc\show data\outputShow.dat";
 
 		public Form1()
 		{
@@ -194,6 +204,41 @@ namespace mwoc_programmer
 
 				cmdViewer.Rows.Clear();
 			}
+		}
+
+		private void startVisualizerBtn_Click(object sender, EventArgs e)
+		{
+			visTimer.Elapsed += visTimer_Elapsed;
+			visTimer.Interval = 1000;
+			
+
+			visTimer.Start();
+		}
+
+		private void visTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+		 {
+			if(countdown < 3)
+			{
+				switch(countdown)
+				{
+					case 0:
+						timeIndicatorImg.Image = redCircle;
+						countdown++;
+						break;
+					case 1:
+						timeIndicatorImg.Image = yellowCircle;
+						countdown++;
+						break;
+					case 2:
+						timeIndicatorImg.Image = greenCircle;
+						countdown++;
+						break;
+				}
+			}
+
+
+
+
 		}
 	}
 }
