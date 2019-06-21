@@ -20,6 +20,7 @@ namespace mwoc_programmer
 		Stopwatch watch = new Stopwatch();
 		Timer visTimer = new Timer();
 
+
 		List<long> patternTime = new List<long>();
 		List<int> patternPower = new List<int>();
 
@@ -35,7 +36,8 @@ namespace mwoc_programmer
 
 		double totalShowTime = 0;
 
-		int countdown = 0;
+		int countdown;
+		int visTracker;
 
 		string outputPath = @"c:\users\kevin\desktop\mini-woc\show data\outputShow.dat";
 
@@ -54,6 +56,7 @@ namespace mwoc_programmer
 				cmdViewer.Columns[i].Width = 60;
 			}
 
+			visTimer.Elapsed += visTimer_Elapsed;
 			//cmdViewer.Rows[0].Cells[0].Value = testList[0];
 
 
@@ -208,8 +211,11 @@ namespace mwoc_programmer
 
 		private void startVisualizerBtn_Click(object sender, EventArgs e)
 		{
-			visTimer.Elapsed += visTimer_Elapsed;
+			visTimer.Stop();
+			
 			visTimer.Interval = 1000;
+			countdown = 0;
+			visTracker = 0;
 			
 
 			visTimer.Start();
@@ -232,10 +238,58 @@ namespace mwoc_programmer
 					case 2:
 						timeIndicatorImg.Image = greenCircle;
 						countdown++;
+						Console.WriteLine(countdown);
 						break;
 				}
-			}
+			} else
+			{
+				timeIndicatorImg.Image = Properties.Resources.check;
 
+				if(visTracker < cmdViewer.RowCount-1) //if the row we're checking hasn't exceeded the count
+				{
+					if(Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[2].Value) == 0)
+					{
+						waterImg_Low.Image = greyCircle;
+						waterImg_Med.Image = greyCircle;
+						waterImg_High.Image = greyCircle;
+					}
+					else if(Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[2].Value) < 85) //low water
+						{
+							waterImg_Low.Image = waterCircle;
+							waterImg_Med.Image = greyCircle;
+							waterImg_High.Image = greyCircle;
+
+						} else if(Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[2].Value) >= 85 && //medium water
+								  Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[2].Value) < 170)
+						{
+							waterImg_Low.Image = waterCircle;
+							waterImg_Med.Image = waterCircle;
+							waterImg_High.Image = greyCircle;
+						} else //high water
+						{
+							waterImg_Low.Image = waterCircle;
+							waterImg_Med.Image = waterCircle;
+							waterImg_High.Image = waterCircle;
+						}
+
+					visTimer.Interval = Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[1].Value); //set the next time interval from list
+					visTracker++; //check the next list element
+				} else
+				{
+					//when done, reset everything to neutral icon
+					timeIndicatorImg.Image = greyCircle;
+					waterImg_Low.Image = greyCircle;
+					waterImg_Med.Image = greyCircle;
+					waterImg_High.Image = greyCircle;
+
+					visTimer.Stop();
+				}
+
+				
+
+
+
+			}
 
 
 

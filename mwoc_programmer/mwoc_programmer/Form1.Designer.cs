@@ -70,17 +70,17 @@
 			this.waterImg_Med = new System.Windows.Forms.PictureBox();
 			this.waterImg_High = new System.Windows.Forms.PictureBox();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.timeIndicatorImg = new System.Windows.Forms.PictureBox();
 			this.pumpColorImg = new System.Windows.Forms.PictureBox();
 			this.startVisualizerBtn = new System.Windows.Forms.Button();
-			this.timeIndicatorImg = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.cmdViewer)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pumpImage)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_Low)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_Med)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_High)).BeginInit();
 			this.panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pumpColorImg)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.timeIndicatorImg)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pumpColorImg)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label2
@@ -447,6 +447,15 @@
 			this.panel1.Size = new System.Drawing.Size(200, 202);
 			this.panel1.TabIndex = 39;
 			// 
+			// timeIndicatorImg
+			// 
+			this.timeIndicatorImg.Image = ((System.Drawing.Image)(resources.GetObject("timeIndicatorImg.Image")));
+			this.timeIndicatorImg.Location = new System.Drawing.Point(155, 14);
+			this.timeIndicatorImg.Name = "timeIndicatorImg";
+			this.timeIndicatorImg.Size = new System.Drawing.Size(25, 25);
+			this.timeIndicatorImg.TabIndex = 40;
+			this.timeIndicatorImg.TabStop = false;
+			// 
 			// pumpColorImg
 			// 
 			this.pumpColorImg.Image = ((System.Drawing.Image)(resources.GetObject("pumpColorImg.Image")));
@@ -465,15 +474,6 @@
 			this.startVisualizerBtn.Text = "Start Visualizer";
 			this.startVisualizerBtn.UseVisualStyleBackColor = true;
 			this.startVisualizerBtn.Click += new System.EventHandler(this.startVisualizerBtn_Click);
-			// 
-			// timeIndicatorImg
-			// 
-			this.timeIndicatorImg.Image = ((System.Drawing.Image)(resources.GetObject("timeIndicatorImg.Image")));
-			this.timeIndicatorImg.Location = new System.Drawing.Point(155, 14);
-			this.timeIndicatorImg.Name = "timeIndicatorImg";
-			this.timeIndicatorImg.Size = new System.Drawing.Size(25, 25);
-			this.timeIndicatorImg.TabIndex = 40;
-			this.timeIndicatorImg.TabStop = false;
 			// 
 			// Form1
 			// 
@@ -512,6 +512,7 @@
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Form1";
 			this.Text = "Mini WoC Programmer";
 			this.Load += new System.EventHandler(this.Form1_Load);
@@ -521,8 +522,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_Med)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_High)).EndInit();
 			this.panel1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pumpColorImg)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.timeIndicatorImg)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pumpColorImg)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
