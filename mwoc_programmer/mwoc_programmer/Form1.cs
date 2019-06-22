@@ -39,7 +39,7 @@ namespace mwoc_programmer
 		int visTracker;
 
 		string outputPath = @"c:\users\kevin\desktop\mini-woc\show data\outputShow.dat";
-		string audioPath = @"c:\users\kevin\desktop\mini-woc\resources\hello_seattle.mp3";
+		string audioPath = @"c:\users\kevin\desktop\mini-woc\mwoc_programmer\mwoc_programmer\resources\hello_seattle.mp3";
 
 		public Form1()
 		{
@@ -59,7 +59,7 @@ namespace mwoc_programmer
 			visTimer.Elapsed += visTimer_Elapsed;
 
 			
-			audioPlayer.URL = audioPath;
+			
 			//cmdViewer.Rows[0].Cells[0].Value = testList[0];
 
 
@@ -300,7 +300,7 @@ namespace mwoc_programmer
 
 		private void trackStartBtn_Click(object sender, EventArgs e)
 		{
-			audioPlayer.Ctlcontrols.play();
+			audioPlayer.URL = audioPath;
 		}
 	}
 }

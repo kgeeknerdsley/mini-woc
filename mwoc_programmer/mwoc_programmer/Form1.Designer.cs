@@ -69,18 +69,19 @@
 			this.waterImg_Low = new System.Windows.Forms.PictureBox();
 			this.waterImg_Med = new System.Windows.Forms.PictureBox();
 			this.waterImg_High = new System.Windows.Forms.PictureBox();
-			this.panel1 = new System.Windows.Forms.Panel();
+			this.visualizerPanel = new System.Windows.Forms.Panel();
 			this.timeIndicatorImg = new System.Windows.Forms.PictureBox();
 			this.pumpColorImg = new System.Windows.Forms.PictureBox();
 			this.startVisualizerBtn = new System.Windows.Forms.Button();
 			this.trackStartBtn = new System.Windows.Forms.Button();
 			this.audioPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+			this.panel1 = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.cmdViewer)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pumpImage)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_Low)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_Med)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_High)).BeginInit();
-			this.panel1.SuspendLayout();
+			this.visualizerPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.timeIndicatorImg)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pumpColorImg)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.audioPlayer)).BeginInit();
@@ -435,20 +436,20 @@
 			this.waterImg_High.TabIndex = 38;
 			this.waterImg_High.TabStop = false;
 			// 
-			// panel1
+			// visualizerPanel
 			// 
-			this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
-			this.panel1.Controls.Add(this.timeIndicatorImg);
-			this.panel1.Controls.Add(this.pumpColorImg);
-			this.panel1.Controls.Add(this.pumpImage);
-			this.panel1.Controls.Add(this.waterImg_Low);
-			this.panel1.Controls.Add(this.waterImg_Med);
-			this.panel1.Controls.Add(this.waterImg_High);
-			this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
-			this.panel1.Location = new System.Drawing.Point(615, 404);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(200, 202);
-			this.panel1.TabIndex = 39;
+			this.visualizerPanel.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.visualizerPanel.Controls.Add(this.timeIndicatorImg);
+			this.visualizerPanel.Controls.Add(this.pumpColorImg);
+			this.visualizerPanel.Controls.Add(this.pumpImage);
+			this.visualizerPanel.Controls.Add(this.waterImg_Low);
+			this.visualizerPanel.Controls.Add(this.waterImg_Med);
+			this.visualizerPanel.Controls.Add(this.waterImg_High);
+			this.visualizerPanel.Cursor = System.Windows.Forms.Cursors.Default;
+			this.visualizerPanel.Location = new System.Drawing.Point(615, 404);
+			this.visualizerPanel.Name = "visualizerPanel";
+			this.visualizerPanel.Size = new System.Drawing.Size(200, 202);
+			this.visualizerPanel.TabIndex = 39;
 			// 
 			// timeIndicatorImg
 			// 
@@ -480,7 +481,7 @@
 			// 
 			// trackStartBtn
 			// 
-			this.trackStartBtn.Location = new System.Drawing.Point(582, 116);
+			this.trackStartBtn.Location = new System.Drawing.Point(615, 227);
 			this.trackStartBtn.Name = "trackStartBtn";
 			this.trackStartBtn.Size = new System.Drawing.Size(75, 23);
 			this.trackStartBtn.TabIndex = 41;
@@ -491,22 +492,31 @@
 			// audioPlayer
 			// 
 			this.audioPlayer.Enabled = true;
-			this.audioPlayer.Location = new System.Drawing.Point(615, 32);
+			this.audioPlayer.Location = new System.Drawing.Point(478, 238);
 			this.audioPlayer.Name = "audioPlayer";
 			this.audioPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("audioPlayer.OcxState")));
-			this.audioPlayer.Size = new System.Drawing.Size(37, 45);
+			this.audioPlayer.Size = new System.Drawing.Size(131, 50);
 			this.audioPlayer.TabIndex = 42;
-			this.audioPlayer.Visible = false;
+			// 
+			// panel1
+			// 
+			this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
+			this.panel1.Location = new System.Drawing.Point(615, 12);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(200, 48);
+			this.panel1.TabIndex = 43;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1172, 652);
+			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.audioPlayer);
 			this.Controls.Add(this.trackStartBtn);
 			this.Controls.Add(this.startVisualizerBtn);
-			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.visualizerPanel);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label13);
 			this.Controls.Add(this.gradPowerBox);
@@ -546,7 +556,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_Low)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_Med)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_High)).EndInit();
-			this.panel1.ResumeLayout(false);
+			this.visualizerPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.timeIndicatorImg)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pumpColorImg)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.audioPlayer)).EndInit();
@@ -594,12 +604,13 @@
 		private System.Windows.Forms.PictureBox waterImg_Low;
 		private System.Windows.Forms.PictureBox waterImg_Med;
 		private System.Windows.Forms.PictureBox waterImg_High;
-		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Panel visualizerPanel;
 		private System.Windows.Forms.PictureBox pumpColorImg;
 		private System.Windows.Forms.Button startVisualizerBtn;
 		private System.Windows.Forms.PictureBox timeIndicatorImg;
 		private System.Windows.Forms.Button trackStartBtn;
 		private AxWMPLib.AxWindowsMediaPlayer audioPlayer;
+		private System.Windows.Forms.Panel panel1;
 	}
 }
 
