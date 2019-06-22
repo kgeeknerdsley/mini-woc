@@ -73,6 +73,8 @@
 			this.timeIndicatorImg = new System.Windows.Forms.PictureBox();
 			this.pumpColorImg = new System.Windows.Forms.PictureBox();
 			this.startVisualizerBtn = new System.Windows.Forms.Button();
+			this.trackStartBtn = new System.Windows.Forms.Button();
+			this.audioPlayer = new AxWMPLib.AxWindowsMediaPlayer();
 			((System.ComponentModel.ISupportInitialize)(this.cmdViewer)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pumpImage)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_Low)).BeginInit();
@@ -81,6 +83,7 @@
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.timeIndicatorImg)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pumpColorImg)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.audioPlayer)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label2
@@ -475,11 +478,33 @@
 			this.startVisualizerBtn.UseVisualStyleBackColor = true;
 			this.startVisualizerBtn.Click += new System.EventHandler(this.startVisualizerBtn_Click);
 			// 
+			// trackStartBtn
+			// 
+			this.trackStartBtn.Location = new System.Drawing.Point(582, 116);
+			this.trackStartBtn.Name = "trackStartBtn";
+			this.trackStartBtn.Size = new System.Drawing.Size(75, 23);
+			this.trackStartBtn.TabIndex = 41;
+			this.trackStartBtn.Text = "Play Audio";
+			this.trackStartBtn.UseVisualStyleBackColor = true;
+			this.trackStartBtn.Click += new System.EventHandler(this.trackStartBtn_Click);
+			// 
+			// audioPlayer
+			// 
+			this.audioPlayer.Enabled = true;
+			this.audioPlayer.Location = new System.Drawing.Point(615, 32);
+			this.audioPlayer.Name = "audioPlayer";
+			this.audioPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("audioPlayer.OcxState")));
+			this.audioPlayer.Size = new System.Drawing.Size(37, 45);
+			this.audioPlayer.TabIndex = 42;
+			this.audioPlayer.Visible = false;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1172, 652);
+			this.Controls.Add(this.audioPlayer);
+			this.Controls.Add(this.trackStartBtn);
 			this.Controls.Add(this.startVisualizerBtn);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.textBox1);
@@ -524,6 +549,7 @@
 			this.panel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.timeIndicatorImg)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pumpColorImg)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.audioPlayer)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -572,6 +598,8 @@
 		private System.Windows.Forms.PictureBox pumpColorImg;
 		private System.Windows.Forms.Button startVisualizerBtn;
 		private System.Windows.Forms.PictureBox timeIndicatorImg;
+		private System.Windows.Forms.Button trackStartBtn;
+		private AxWMPLib.AxWindowsMediaPlayer audioPlayer;
 	}
 }
 
