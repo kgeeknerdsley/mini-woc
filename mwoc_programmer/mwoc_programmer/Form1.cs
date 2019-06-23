@@ -41,10 +41,14 @@ namespace mwoc_programmer
 		int countdown;
 		int visTracker;
 
-		//string outputPath = @"c:\users\kevin\desktop\mini-woc\show data\outputShow.dat";
-		string outputPath = @"C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\show data\outputShow.dat";
-		//string audioPath = @"c:\users\kevin\desktop\mini-woc\mwoc_programmer\mwoc_programmer\resources\hello_seattle.mp3";
-		string audioPath = @"C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\Resources\hello_seattle.mp3";
+		float waypoint1 = 0;
+		float waypoint2 = 0;
+
+		string outputPath = @"c:\users\kevin\desktop\mini-woc\show data\outputShow.dat";
+		string audioPath = @"c:\users\kevin\desktop\mini-woc\mwoc_programmer\mwoc_programmer\resources\hello_seattle.mp3";
+
+		//string outputPath = @"C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\show data\outputShow.dat";
+		//string audioPath = @"C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\Resources\hello_seattle.mp3";
 
 		public Form1()
 		{
@@ -53,25 +57,18 @@ namespace mwoc_programmer
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			List<int> testList = new List<int>() { 1, 2, 3 };
-
 			//sets the column width to a more reasonable size
 			for (int i = 0; i < 4; i++)
 			{
 				cmdViewer.Columns[i].Width = 60;
 			}
 
+			//sets elapsed event for the visualization function
 			visTimer.Elapsed += visTimer_Elapsed;
 
+			//attempt to precache the music so it doesn't waste time loading when needed
 			audioPlayer.URL = audioPath;
 			audioPlayer.Ctlcontrols.stop();
-
-
-
-			//cmdViewer.Rows[0].Cells[0].Value = testList[0];
-
-
-			//stopwatchText.Text = cmdViewer.Rows[0].Cells[2].Value.ToString();
 		}
 
 
@@ -89,20 +86,21 @@ namespace mwoc_programmer
 			watch.Reset();
 		}
 
+		//adds command to list manually
 		private void manualAddToList_Click(object sender, EventArgs e)
 		{
 			updateTotalTime(double.Parse(manual_TimeBox.Text));
 			cmdViewer.Rows.Add(totalShowTime,manual_TimeBox.Text, manual_PowerBox.Text, manual_ColorBox.Text);
 		}
 
-		
-
-		//updates total time, only provide it time in ms!
+		//updates total show time parameter 
+		//only provide it time in ms!
 		public void updateTotalTime(double addedTime)
 		{
 			totalShowTime += (addedTime * 0.001);
 		}
 
+		//measures the time the fountain is off in a pattern
 		private void patternBtn_MouseUp(object sender, MouseEventArgs e)
 		{
 			if(watch.IsRunning)
@@ -131,6 +129,7 @@ namespace mwoc_programmer
 			watch.Start();
 		}
 
+		//measures the time the fountain is on in a pattern
 		private void patternBtn_MouseDown(object sender, MouseEventArgs e)
 		{
 			//if watch is running, this means it's counting the off time
@@ -147,6 +146,7 @@ namespace mwoc_programmer
 
 		}
 
+		//add the assembled pattern onto the list, then forget it
 		private void patternListBtn_Click(object sender, EventArgs e)
 		{
 			if(watch.IsRunning)
@@ -171,6 +171,8 @@ namespace mwoc_programmer
 			patternPower.Clear();
 		}
 
+		//write command list to the output file in proper format
+		//TODO: add a power 0 section to the end so the final command doesn't go forever
 		private void outputToFileBtn_Click(object sender, EventArgs e)
 		{
 			if(!File.Exists(outputPath)) //if file does not exist
@@ -220,6 +222,7 @@ namespace mwoc_programmer
 			}
 		}
 
+		//starts the visualizer
 		private void startVisualizerBtn_Click(object sender, EventArgs e)
 		{
 			visTimer.Stop();
@@ -232,6 +235,8 @@ namespace mwoc_programmer
 			visTimer.Start();
 		}
 
+		//fires whenever the visualizer's timer ticks over, updates the water height, color, and how long it's on for
+		//TODO: make the color function work
 		private void visTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
 		 {
 			if(countdown < 3)
@@ -310,6 +315,7 @@ namespace mwoc_programmer
 			}
 		}
 
+		//starts the audio track, caches if necessary
 		private void trackStartBtn_Click(object sender, EventArgs e)
 		{
 			audioPlayer.URL = audioPath;
@@ -317,6 +323,7 @@ namespace mwoc_programmer
 			audioWatch.Start();
 		}
 
+		//pauses the audio, notes the time it stopped
 		private void trackStopBtn_Click(object sender, EventArgs e)
 		{
 			audioPlayer.Ctlcontrols.pause();
@@ -324,6 +331,7 @@ namespace mwoc_programmer
 			audioCurrentTimeBox.Text = audioWatch.Elapsed.ToString();
 		}
 
+		//resumes the audio
 		private void audioResumeBtn_Click(object sender, EventArgs e)
 		{
 			audioWatch.Start();
