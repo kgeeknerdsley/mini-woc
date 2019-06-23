@@ -23,3 +23,8 @@ C:\Users\Kevin\Desktop\mini-woc\mwoc_programmer\mwoc_programmer\bin\Debug\AxInte
 C:\Users\Kevin\Desktop\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\Interop.WMPLib.dll
 C:\Users\Kevin\Desktop\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\Kevin\Desktop\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\mwoc_programmer.csproj.ResolveComReference.cache
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\bin\Debug\Interop.WMPLib.dll
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\Interop.WMPLib.dll
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\obj\Debug\mwoc_programmer.csproj.ResolveComReference.cache

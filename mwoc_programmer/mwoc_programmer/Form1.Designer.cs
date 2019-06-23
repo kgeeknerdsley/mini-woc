@@ -28,8 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -74,8 +74,11 @@
 			this.pumpColorImg = new System.Windows.Forms.PictureBox();
 			this.startVisualizerBtn = new System.Windows.Forms.Button();
 			this.trackStartBtn = new System.Windows.Forms.Button();
-			this.audioPlayer = new AxWMPLib.AxWindowsMediaPlayer();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.audioPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+			this.trackStopBtn = new System.Windows.Forms.Button();
+			this.audioCurrentTimeBox = new System.Windows.Forms.TextBox();
+			this.audioResumeBtn = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.cmdViewer)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pumpImage)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_Low)).BeginInit();
@@ -84,6 +87,7 @@
 			this.visualizerPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.timeIndicatorImg)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pumpColorImg)).BeginInit();
+			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.audioPlayer)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -155,14 +159,14 @@
             this.timeColumn,
             this.powerCol,
             this.colorColumn});
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.cmdViewer.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.cmdViewer.DefaultCellStyle = dataGridViewCellStyle10;
 			this.cmdViewer.Location = new System.Drawing.Point(848, 12);
 			this.cmdViewer.Name = "cmdViewer";
 			this.cmdViewer.Size = new System.Drawing.Size(312, 594);
@@ -170,8 +174,8 @@
 			// 
 			// totalTimeColumn
 			// 
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-			this.totalTimeColumn.DefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+			this.totalTimeColumn.DefaultCellStyle = dataGridViewCellStyle9;
 			this.totalTimeColumn.HeaderText = "Total Time";
 			this.totalTimeColumn.Name = "totalTimeColumn";
 			this.totalTimeColumn.ToolTipText = "Total show time in seconds";
@@ -481,31 +485,64 @@
 			// 
 			// trackStartBtn
 			// 
-			this.trackStartBtn.Location = new System.Drawing.Point(615, 227);
+			this.trackStartBtn.Location = new System.Drawing.Point(62, 75);
 			this.trackStartBtn.Name = "trackStartBtn";
-			this.trackStartBtn.Size = new System.Drawing.Size(75, 23);
+			this.trackStartBtn.Size = new System.Drawing.Size(104, 23);
 			this.trackStartBtn.TabIndex = 41;
 			this.trackStartBtn.Text = "Play Audio";
 			this.trackStartBtn.UseVisualStyleBackColor = true;
 			this.trackStartBtn.Click += new System.EventHandler(this.trackStartBtn_Click);
 			// 
-			// audioPlayer
-			// 
-			this.audioPlayer.Enabled = true;
-			this.audioPlayer.Location = new System.Drawing.Point(478, 238);
-			this.audioPlayer.Name = "audioPlayer";
-			this.audioPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("audioPlayer.OcxState")));
-			this.audioPlayer.Size = new System.Drawing.Size(131, 50);
-			this.audioPlayer.TabIndex = 42;
-			// 
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.panel1.Controls.Add(this.audioResumeBtn);
+			this.panel1.Controls.Add(this.audioCurrentTimeBox);
+			this.panel1.Controls.Add(this.trackStopBtn);
+			this.panel1.Controls.Add(this.audioPlayer);
+			this.panel1.Controls.Add(this.trackStartBtn);
 			this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
-			this.panel1.Location = new System.Drawing.Point(615, 12);
+			this.panel1.Location = new System.Drawing.Point(524, 67);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(200, 48);
+			this.panel1.Size = new System.Drawing.Size(244, 206);
 			this.panel1.TabIndex = 43;
+			// 
+			// audioPlayer
+			// 
+			this.audioPlayer.Enabled = true;
+			this.audioPlayer.Location = new System.Drawing.Point(17, 3);
+			this.audioPlayer.Name = "audioPlayer";
+			this.audioPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("audioPlayer.OcxState")));
+			this.audioPlayer.Size = new System.Drawing.Size(212, 65);
+			this.audioPlayer.TabIndex = 42;
+			// 
+			// trackStopBtn
+			// 
+			this.trackStopBtn.Location = new System.Drawing.Point(62, 104);
+			this.trackStopBtn.Name = "trackStopBtn";
+			this.trackStopBtn.Size = new System.Drawing.Size(104, 23);
+			this.trackStopBtn.TabIndex = 43;
+			this.trackStopBtn.Text = "Pause Audio";
+			this.trackStopBtn.UseVisualStyleBackColor = true;
+			this.trackStopBtn.Click += new System.EventHandler(this.trackStopBtn_Click);
+			// 
+			// audioCurrentTimeBox
+			// 
+			this.audioCurrentTimeBox.Location = new System.Drawing.Point(62, 171);
+			this.audioCurrentTimeBox.Name = "audioCurrentTimeBox";
+			this.audioCurrentTimeBox.Size = new System.Drawing.Size(112, 20);
+			this.audioCurrentTimeBox.TabIndex = 44;
+			this.audioCurrentTimeBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			// 
+			// audioResumeBtn
+			// 
+			this.audioResumeBtn.Location = new System.Drawing.Point(62, 133);
+			this.audioResumeBtn.Name = "audioResumeBtn";
+			this.audioResumeBtn.Size = new System.Drawing.Size(104, 23);
+			this.audioResumeBtn.TabIndex = 45;
+			this.audioResumeBtn.Text = "Resume Audio";
+			this.audioResumeBtn.UseVisualStyleBackColor = true;
+			this.audioResumeBtn.Click += new System.EventHandler(this.audioResumeBtn_Click);
 			// 
 			// Form1
 			// 
@@ -513,8 +550,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1172, 652);
 			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.audioPlayer);
-			this.Controls.Add(this.trackStartBtn);
 			this.Controls.Add(this.startVisualizerBtn);
 			this.Controls.Add(this.visualizerPanel);
 			this.Controls.Add(this.textBox1);
@@ -559,6 +594,8 @@
 			this.visualizerPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.timeIndicatorImg)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pumpColorImg)).EndInit();
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.audioPlayer)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -609,8 +646,11 @@
 		private System.Windows.Forms.Button startVisualizerBtn;
 		private System.Windows.Forms.PictureBox timeIndicatorImg;
 		private System.Windows.Forms.Button trackStartBtn;
-		private AxWMPLib.AxWindowsMediaPlayer audioPlayer;
 		private System.Windows.Forms.Panel panel1;
+		private AxWMPLib.AxWindowsMediaPlayer audioPlayer;
+		private System.Windows.Forms.TextBox audioCurrentTimeBox;
+		private System.Windows.Forms.Button trackStopBtn;
+		private System.Windows.Forms.Button audioResumeBtn;
 	}
 }
 

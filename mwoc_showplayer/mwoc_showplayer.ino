@@ -11,7 +11,7 @@ int cmdTime;
 int power;
 int color;
 
-char showName[] = "testshow.dat";
+char showName[] = "hs_start.dat";
 
 void setup() {
 
@@ -43,9 +43,19 @@ void setup() {
     while(1);
   }
 
+  Serial.println("Beginning in 3");
+  delay(1000);
+  Serial.println("Beginning in 2");
+  delay(1000);
+  Serial.println("Beginning in 1");
+  delay(1000);
+  Serial.println("Start music now!!!");
+
 }
 
 void loop() {
+
+  
 
   if(!showData.available()) {
     Serial.println("Show complete");

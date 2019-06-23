@@ -18,6 +18,7 @@ namespace mwoc_programmer
 	{
 
 		Stopwatch watch = new Stopwatch();
+		Stopwatch audioWatch = new Stopwatch();
 		Timer visTimer = new Timer();
 
 		List<long> patternTime = new List<long>();
@@ -33,13 +34,17 @@ namespace mwoc_programmer
 		string printCmd;
 		string convertedColor;
 
+		bool visAudioStarted = false;
+
 		double totalShowTime = 0;
 
 		int countdown;
 		int visTracker;
 
-		string outputPath = @"c:\users\kevin\desktop\mini-woc\show data\outputShow.dat";
-		string audioPath = @"c:\users\kevin\desktop\mini-woc\mwoc_programmer\mwoc_programmer\resources\hello_seattle.mp3";
+		//string outputPath = @"c:\users\kevin\desktop\mini-woc\show data\outputShow.dat";
+		string outputPath = @"C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\show data\outputShow.dat";
+		//string audioPath = @"c:\users\kevin\desktop\mini-woc\mwoc_programmer\mwoc_programmer\resources\hello_seattle.mp3";
+		string audioPath = @"C:\Users\Kevin Worsley\Desktop\Personal Projects\mini-woc\mwoc_programmer\mwoc_programmer\Resources\hello_seattle.mp3";
 
 		public Form1()
 		{
@@ -58,8 +63,11 @@ namespace mwoc_programmer
 
 			visTimer.Elapsed += visTimer_Elapsed;
 
-			
-			
+			audioPlayer.URL = audioPath;
+			audioPlayer.Ctlcontrols.stop();
+
+
+
 			//cmdViewer.Rows[0].Cells[0].Value = testList[0];
 
 
@@ -248,36 +256,46 @@ namespace mwoc_programmer
 			{
 				timeIndicatorImg.Image = Properties.Resources.check;
 
-				if(visTracker < cmdViewer.RowCount-1) //if the row we're checking hasn't exceeded the count
+				if(!visAudioStarted)
 				{
-					if(Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[2].Value) == 0)
+					audioPlayer.URL = audioPath;
+					visAudioStarted = true;
+				}
+				
+
+				if (visTracker < cmdViewer.RowCount - 1) //if the row we're checking hasn't exceeded the count
+				{
+					if (Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[2].Value) == 0)
 					{
 						waterImg_Low.Image = greyCircle;
 						waterImg_Med.Image = greyCircle;
 						waterImg_High.Image = greyCircle;
 					}
-					else if(Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[2].Value) < 85) //low water
-						{
-							waterImg_Low.Image = waterCircle;
-							waterImg_Med.Image = greyCircle;
-							waterImg_High.Image = greyCircle;
+					else if (Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[2].Value) < 85) //low water
+					{
+						waterImg_Low.Image = waterCircle;
+						waterImg_Med.Image = greyCircle;
+						waterImg_High.Image = greyCircle;
 
-						} else if(Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[2].Value) >= 85 && //medium water
-								  Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[2].Value) < 170)
-						{
-							waterImg_Low.Image = waterCircle;
-							waterImg_Med.Image = waterCircle;
-							waterImg_High.Image = greyCircle;
-						} else //high water
-						{
-							waterImg_Low.Image = waterCircle;
-							waterImg_Med.Image = waterCircle;
-							waterImg_High.Image = waterCircle;
-						}
+					}
+					else if (Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[2].Value) >= 85 && //medium water
+							Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[2].Value) < 170)
+					{
+						waterImg_Low.Image = waterCircle;
+						waterImg_Med.Image = waterCircle;
+						waterImg_High.Image = greyCircle;
+					}
+					else //high water
+					{
+						waterImg_Low.Image = waterCircle;
+						waterImg_Med.Image = waterCircle;
+						waterImg_High.Image = waterCircle;
+					}
 
 					visTimer.Interval = Convert.ToInt16(cmdViewer.Rows[visTracker].Cells[1].Value); //set the next time interval from list
 					visTracker++; //check the next list element
-				} else
+				}
+				else
 				{
 					//when done, reset everything to neutral icon
 					timeIndicatorImg.Image = greyCircle;
@@ -286,21 +304,30 @@ namespace mwoc_programmer
 					waterImg_High.Image = greyCircle;
 
 					visTimer.Stop();
+					audioPlayer.Ctlcontrols.stop();
+					visAudioStarted = false;
 				}
-
-				
-
-
-
 			}
-
-
-
 		}
 
 		private void trackStartBtn_Click(object sender, EventArgs e)
 		{
 			audioPlayer.URL = audioPath;
+			audioWatch.Reset();
+			audioWatch.Start();
+		}
+
+		private void trackStopBtn_Click(object sender, EventArgs e)
+		{
+			audioPlayer.Ctlcontrols.pause();
+			audioWatch.Stop();
+			audioCurrentTimeBox.Text = audioWatch.Elapsed.ToString();
+		}
+
+		private void audioResumeBtn_Click(object sender, EventArgs e)
+		{
+			audioWatch.Start();
+			audioPlayer.Ctlcontrols.play();
 		}
 	}
 }
