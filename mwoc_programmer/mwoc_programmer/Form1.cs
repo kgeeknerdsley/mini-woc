@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.IO;
 using System.Timers;
+using Microsoft.Win32;
 using Timer = System.Timers.Timer;
 
 namespace mwoc_programmer
@@ -33,6 +34,10 @@ namespace mwoc_programmer
 
 		string printCmd;
 		string convertedColor;
+		string cmdIncoming;
+		string loadedTime;
+		string loadedPower;
+		string loadedColor;
 
 		bool visAudioStarted = false;
 
@@ -40,9 +45,6 @@ namespace mwoc_programmer
 
 		int countdown;
 		int visTracker;
-
-		float waypoint1 = 0;
-		float waypoint2 = 0;
 
 		string outputPath = @"c:\users\kevin\desktop\mini-woc\show data\outputShow.dat";
 		string audioPath = @"c:\users\kevin\desktop\mini-woc\mwoc_programmer\mwoc_programmer\resources\hello_seattle.mp3";
@@ -336,6 +338,40 @@ namespace mwoc_programmer
 		{
 			audioWatch.Start();
 			audioPlayer.Ctlcontrols.play();
+		}
+
+		//loads existing show files into the viewer for editing
+		private void loadFileBtn_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog getFileDlg = new OpenFileDialog();
+			getFileDlg.FileName = "File";
+			getFileDlg.DefaultExt = ".dat";
+			getFileDlg.Filter = "Show files (.dat)|*.dat";
+
+			getFileDlg.ShowDialog();
+
+			string filename = getFileDlg.FileName;
+
+			StreamReader reader = new StreamReader(filename);
+
+			totalShowTime = 0;
+
+			cmdViewer.Rows.Clear();
+
+			while ((cmdIncoming = reader.ReadLine()) != null)
+			{
+				string[] values = cmdIncoming.Split(' ');
+				try
+				{
+					updateTotalTime(Double.Parse(values[0]));
+					cmdViewer.Rows.Add(totalShowTime, values[0], values[1], values[2]);
+				} catch(FormatException)
+				{
+					MessageBox.Show("File format is damaged or in incorrect format.");
+					break;
+				}
+			}
+			reader.Close();
 		}
 	}
 }

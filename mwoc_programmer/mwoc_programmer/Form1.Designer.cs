@@ -28,8 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -80,6 +80,7 @@
 			this.audioCurrentTimeBox = new System.Windows.Forms.TextBox();
 			this.trackStopBtn = new System.Windows.Forms.Button();
 			this.audioPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+			this.loadFileBtn = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.cmdViewer)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pumpImage)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_Low)).BeginInit();
@@ -160,23 +161,23 @@
             this.timeColumn,
             this.powerCol,
             this.colorColumn});
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.cmdViewer.DefaultCellStyle = dataGridViewCellStyle2;
-			this.cmdViewer.Location = new System.Drawing.Point(848, 12);
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.cmdViewer.DefaultCellStyle = dataGridViewCellStyle6;
+			this.cmdViewer.Location = new System.Drawing.Point(874, 12);
 			this.cmdViewer.Name = "cmdViewer";
-			this.cmdViewer.Size = new System.Drawing.Size(312, 594);
+			this.cmdViewer.Size = new System.Drawing.Size(286, 565);
 			this.cmdViewer.TabIndex = 13;
 			// 
 			// totalTimeColumn
 			// 
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-			this.totalTimeColumn.DefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+			this.totalTimeColumn.DefaultCellStyle = dataGridViewCellStyle5;
 			this.totalTimeColumn.HeaderText = "Total Time";
 			this.totalTimeColumn.Name = "totalTimeColumn";
 			this.totalTimeColumn.ToolTipText = "Total show time in seconds";
@@ -248,9 +249,9 @@
 			// 
 			// outputToFileBtn
 			// 
-			this.outputToFileBtn.Location = new System.Drawing.Point(848, 613);
+			this.outputToFileBtn.Location = new System.Drawing.Point(874, 583);
 			this.outputToFileBtn.Name = "outputToFileBtn";
-			this.outputToFileBtn.Size = new System.Drawing.Size(312, 27);
+			this.outputToFileBtn.Size = new System.Drawing.Size(286, 27);
 			this.outputToFileBtn.TabIndex = 17;
 			this.outputToFileBtn.Text = "Output show to file";
 			this.outputToFileBtn.UseVisualStyleBackColor = true;
@@ -555,11 +556,22 @@
 			this.audioPlayer.Size = new System.Drawing.Size(212, 65);
 			this.audioPlayer.TabIndex = 42;
 			// 
+			// loadFileBtn
+			// 
+			this.loadFileBtn.Location = new System.Drawing.Point(874, 616);
+			this.loadFileBtn.Name = "loadFileBtn";
+			this.loadFileBtn.Size = new System.Drawing.Size(286, 27);
+			this.loadFileBtn.TabIndex = 44;
+			this.loadFileBtn.Text = "Load File";
+			this.loadFileBtn.UseVisualStyleBackColor = true;
+			this.loadFileBtn.Click += new System.EventHandler(this.loadFileBtn_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1172, 652);
+			this.Controls.Add(this.loadFileBtn);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.startVisualizerBtn);
 			this.Controls.Add(this.visualizerPanel);
@@ -663,6 +675,7 @@
 		private System.Windows.Forms.Button trackStopBtn;
 		private System.Windows.Forms.Button audioResumeBtn;
 		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.Button loadFileBtn;
 	}
 }
 
