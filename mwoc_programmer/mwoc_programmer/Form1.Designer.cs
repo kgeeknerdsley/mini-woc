@@ -28,8 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -81,6 +81,13 @@
 			this.trackStopBtn = new System.Windows.Forms.Button();
 			this.audioPlayer = new AxWMPLib.AxWindowsMediaPlayer();
 			this.loadFileBtn = new System.Windows.Forms.Button();
+			this.switchToList1 = new System.Windows.Forms.Button();
+			this.switchToList2 = new System.Windows.Forms.Button();
+			this.switchToList3 = new System.Windows.Forms.Button();
+			this.switchToList4 = new System.Windows.Forms.Button();
+			this.switchToList5 = new System.Windows.Forms.Button();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.label15 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.cmdViewer)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pumpImage)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.waterImg_Low)).BeginInit();
@@ -161,14 +168,14 @@
             this.timeColumn,
             this.powerCol,
             this.colorColumn});
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.cmdViewer.DefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.cmdViewer.DefaultCellStyle = dataGridViewCellStyle4;
 			this.cmdViewer.Location = new System.Drawing.Point(874, 12);
 			this.cmdViewer.Name = "cmdViewer";
 			this.cmdViewer.Size = new System.Drawing.Size(286, 565);
@@ -176,8 +183,8 @@
 			// 
 			// totalTimeColumn
 			// 
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-			this.totalTimeColumn.DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+			this.totalTimeColumn.DefaultCellStyle = dataGridViewCellStyle3;
 			this.totalTimeColumn.HeaderText = "Total Time";
 			this.totalTimeColumn.Name = "totalTimeColumn";
 			this.totalTimeColumn.ToolTipText = "Total show time in seconds";
@@ -566,11 +573,83 @@
 			this.loadFileBtn.UseVisualStyleBackColor = true;
 			this.loadFileBtn.Click += new System.EventHandler(this.loadFileBtn_Click);
 			// 
+			// switchToList1
+			// 
+			this.switchToList1.Location = new System.Drawing.Point(834, 59);
+			this.switchToList1.Name = "switchToList1";
+			this.switchToList1.Size = new System.Drawing.Size(26, 23);
+			this.switchToList1.TabIndex = 45;
+			this.switchToList1.Text = "1";
+			this.switchToList1.UseVisualStyleBackColor = true;
+			this.switchToList1.Click += new System.EventHandler(this.switchToList1_Click);
+			// 
+			// switchToList2
+			// 
+			this.switchToList2.Location = new System.Drawing.Point(834, 88);
+			this.switchToList2.Name = "switchToList2";
+			this.switchToList2.Size = new System.Drawing.Size(26, 23);
+			this.switchToList2.TabIndex = 46;
+			this.switchToList2.Text = "2";
+			this.switchToList2.UseVisualStyleBackColor = true;
+			// 
+			// switchToList3
+			// 
+			this.switchToList3.Location = new System.Drawing.Point(834, 117);
+			this.switchToList3.Name = "switchToList3";
+			this.switchToList3.Size = new System.Drawing.Size(26, 23);
+			this.switchToList3.TabIndex = 47;
+			this.switchToList3.Text = "3";
+			this.switchToList3.UseVisualStyleBackColor = true;
+			// 
+			// switchToList4
+			// 
+			this.switchToList4.Location = new System.Drawing.Point(834, 146);
+			this.switchToList4.Name = "switchToList4";
+			this.switchToList4.Size = new System.Drawing.Size(26, 23);
+			this.switchToList4.TabIndex = 48;
+			this.switchToList4.Text = "4";
+			this.switchToList4.UseVisualStyleBackColor = true;
+			// 
+			// switchToList5
+			// 
+			this.switchToList5.Location = new System.Drawing.Point(834, 175);
+			this.switchToList5.Name = "switchToList5";
+			this.switchToList5.Size = new System.Drawing.Size(26, 23);
+			this.switchToList5.TabIndex = 49;
+			this.switchToList5.Text = "5";
+			this.switchToList5.UseVisualStyleBackColor = true;
+			// 
+			// textBox2
+			// 
+			this.textBox2.Location = new System.Drawing.Point(834, 29);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(26, 20);
+			this.textBox2.TabIndex = 50;
+			this.textBox2.TabStop = false;
+			this.textBox2.Text = "1";
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.Location = new System.Drawing.Point(831, 9);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(40, 13);
+			this.label15.TabIndex = 51;
+			this.label15.Text = "Active:";
+			this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1172, 652);
+			this.Controls.Add(this.label15);
+			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.switchToList5);
+			this.Controls.Add(this.switchToList4);
+			this.Controls.Add(this.switchToList3);
+			this.Controls.Add(this.switchToList2);
+			this.Controls.Add(this.switchToList1);
 			this.Controls.Add(this.loadFileBtn);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.startVisualizerBtn);
@@ -676,6 +755,13 @@
 		private System.Windows.Forms.Button audioResumeBtn;
 		private System.Windows.Forms.Label label14;
 		private System.Windows.Forms.Button loadFileBtn;
+		private System.Windows.Forms.Button switchToList1;
+		private System.Windows.Forms.Button switchToList2;
+		private System.Windows.Forms.Button switchToList3;
+		private System.Windows.Forms.Button switchToList4;
+		private System.Windows.Forms.Button switchToList5;
+		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.Label label15;
 	}
 }
 

@@ -25,6 +25,15 @@ namespace mwoc_programmer
 		List<long> patternTime = new List<long>();
 		List<int> patternPower = new List<int>();
 
+		//list that holds saved data when we switch lists
+		List<List<string>> savedFountain1 = new List<List<string>>();
+		List<List<string>> savedFountain2 = new List<List<string>>();
+		List<List<string>> savedFountain3 = new List<List<string>>();
+		List<List<string>> savedFountain4 = new List<List<string>>();
+		List<List<string>> savedFountain5 = new List<List<string>>();
+
+		List<List<string>> currentFtnList = new List<List<string>>();
+
 		Bitmap waterCircle = Properties.Resources.watercircle;
 		Bitmap greyCircle = Properties.Resources.greycircle;
 		Bitmap redCircle = Properties.Resources.redcircle;
@@ -45,6 +54,7 @@ namespace mwoc_programmer
 
 		int countdown;
 		int visTracker;
+		int currentFountain = 1;
 
 		string outputPath = @"c:\users\kevin\desktop\mini-woc\show data\outputShow.dat";
 		string audioPath = @"c:\users\kevin\desktop\mini-woc\mwoc_programmer\mwoc_programmer\resources\hello_seattle.mp3";
@@ -191,7 +201,7 @@ namespace mwoc_programmer
 
 					for (int i = 0; i < cmdViewer.RowCount-1; i++) //-1 because it counts the blank row
 					{
-
+						//TODO: Replace with the color conversion function
 						switch(cmdViewer.Rows[i].Cells[3].Value)
 						{
 							case "Red":
@@ -372,6 +382,86 @@ namespace mwoc_programmer
 				}
 			}
 			reader.Close();
+		}
+
+		//saves everything into the list of whichever fountain is currently there
+		//loads up the saved list for fountain 1
+		private void switchToList1_Click(object sender, EventArgs e)
+		{
+			if(currentFountain != 2) //if current fountain is 1, nothing should happen
+			{
+				cleanupList(currentFountain);
+				MessageBox.Show("Cleanup happened");
+			} else
+			{
+				MessageBox.Show("Cleanup didn't happen");
+				//do nothing
+			}
+		}
+
+		private void cleanupList(int fountainIndex)
+		{
+			switch(fountainIndex)
+			{
+				case 1:
+					currentFtnList = savedFountain1;
+					break;
+				case 2:
+					currentFtnList = savedFountain2;
+					break;
+				case 3:
+					currentFtnList = savedFountain3;
+					break;
+				case 4:
+					currentFtnList = savedFountain4;
+					break;
+				case 5:
+					currentFtnList = savedFountain5;
+					break;
+				default: //this should never occur!!!
+					currentFtnList = savedFountain1;
+					break;
+			}
+
+			for(int i = 0; i < cmdViewer.RowCount-1; i++) //outer loop grabs the row
+			{
+				for(int x = 0; x < 4; x++) //inner loop grabs the data and shoves it into list
+				{
+					currentFtnList[i].Add(cmdViewer.Rows[i].Cells[x].Value.ToString());
+				}
+			}
+
+			cmdViewer.Rows.Clear();
+
+			MessageBox.Show(currentFtnList[0][1].ToString());
+		}
+
+
+		//takes in the string of color and converts it to an integer number
+		private int convertColortoInt(string color)
+		{
+			int result;
+
+			switch(color)
+			{
+				case "Red":
+					result = 0;
+					break;
+				case "Green":
+					result = 1;
+					break;
+				case "Blue":
+					result = 2;
+					break;
+				case "Yellow":
+					result = 3;
+					break;
+				default:
+					result = -1;
+					break;
+			}
+
+			return result;
 		}
 	}
 }
