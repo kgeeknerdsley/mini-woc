@@ -28,8 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -86,7 +86,7 @@
 			this.switchToList3 = new System.Windows.Forms.Button();
 			this.switchToList4 = new System.Windows.Forms.Button();
 			this.switchToList5 = new System.Windows.Forms.Button();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.activeFtnBox = new System.Windows.Forms.TextBox();
 			this.label15 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.cmdViewer)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pumpImage)).BeginInit();
@@ -168,14 +168,14 @@
             this.timeColumn,
             this.powerCol,
             this.colorColumn});
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.cmdViewer.DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.cmdViewer.DefaultCellStyle = dataGridViewCellStyle2;
 			this.cmdViewer.Location = new System.Drawing.Point(874, 12);
 			this.cmdViewer.Name = "cmdViewer";
 			this.cmdViewer.Size = new System.Drawing.Size(286, 565);
@@ -183,8 +183,8 @@
 			// 
 			// totalTimeColumn
 			// 
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-			this.totalTimeColumn.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+			this.totalTimeColumn.DefaultCellStyle = dataGridViewCellStyle1;
 			this.totalTimeColumn.HeaderText = "Total Time";
 			this.totalTimeColumn.Name = "totalTimeColumn";
 			this.totalTimeColumn.ToolTipText = "Total show time in seconds";
@@ -591,6 +591,7 @@
 			this.switchToList2.TabIndex = 46;
 			this.switchToList2.Text = "2";
 			this.switchToList2.UseVisualStyleBackColor = true;
+			this.switchToList2.Click += new System.EventHandler(this.switchToList2_Click);
 			// 
 			// switchToList3
 			// 
@@ -619,14 +620,14 @@
 			this.switchToList5.Text = "5";
 			this.switchToList5.UseVisualStyleBackColor = true;
 			// 
-			// textBox2
+			// activeFtnBox
 			// 
-			this.textBox2.Location = new System.Drawing.Point(834, 29);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(26, 20);
-			this.textBox2.TabIndex = 50;
-			this.textBox2.TabStop = false;
-			this.textBox2.Text = "1";
+			this.activeFtnBox.Location = new System.Drawing.Point(834, 29);
+			this.activeFtnBox.Name = "activeFtnBox";
+			this.activeFtnBox.Size = new System.Drawing.Size(26, 20);
+			this.activeFtnBox.TabIndex = 50;
+			this.activeFtnBox.TabStop = false;
+			this.activeFtnBox.Text = "1";
 			// 
 			// label15
 			// 
@@ -644,7 +645,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1172, 652);
 			this.Controls.Add(this.label15);
-			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.activeFtnBox);
 			this.Controls.Add(this.switchToList5);
 			this.Controls.Add(this.switchToList4);
 			this.Controls.Add(this.switchToList3);
@@ -760,7 +761,7 @@
 		private System.Windows.Forms.Button switchToList3;
 		private System.Windows.Forms.Button switchToList4;
 		private System.Windows.Forms.Button switchToList5;
-		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.TextBox activeFtnBox;
 		private System.Windows.Forms.Label label15;
 	}
 }

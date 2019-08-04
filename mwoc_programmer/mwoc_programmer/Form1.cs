@@ -34,6 +34,8 @@ namespace mwoc_programmer
 
 		List<List<string>> currentFtnList = new List<List<string>>();
 
+		List<string> dataToSave = new List<string>();
+
 		Bitmap waterCircle = Properties.Resources.watercircle;
 		Bitmap greyCircle = Properties.Resources.greycircle;
 		Bitmap redCircle = Properties.Resources.redcircle;
@@ -44,6 +46,8 @@ namespace mwoc_programmer
 		string printCmd;
 		string convertedColor;
 		string cmdIncoming;
+
+		string totalLoadedTime;
 		string loadedTime;
 		string loadedPower;
 		string loadedColor;
@@ -55,6 +59,7 @@ namespace mwoc_programmer
 		int countdown;
 		int visTracker;
 		int currentFountain = 1;
+		int lastClickedFtn;
 
 		string outputPath = @"c:\users\kevin\desktop\mini-woc\show data\outputShow.dat";
 		string audioPath = @"c:\users\kevin\desktop\mini-woc\mwoc_programmer\mwoc_programmer\resources\hello_seattle.mp3";
@@ -388,14 +393,75 @@ namespace mwoc_programmer
 		//loads up the saved list for fountain 1
 		private void switchToList1_Click(object sender, EventArgs e)
 		{
-			if(currentFountain != 2) //if current fountain is 1, nothing should happen
+			activeFtnBox.Text = "1";
+			lastClickedFtn = currentFountain;
+			currentFountain = 1;
+
+			if(currentFountain != lastClickedFtn) //if current fountain is 1, nothing should happen
 			{
 				cleanupList(currentFountain);
 				MessageBox.Show("Cleanup happened");
+
+				printList(1);
 			} else
 			{
 				MessageBox.Show("Cleanup didn't happen");
 				//do nothing
+			}
+		}
+
+		private void switchToList2_Click(object sender, EventArgs e)
+		{
+			activeFtnBox.Text = "2";
+			lastClickedFtn = currentFountain;
+			currentFountain = 2;
+
+			if (currentFountain != lastClickedFtn) //if current fountain is 1, nothing should happen
+			{
+				cleanupList(currentFountain);
+				MessageBox.Show("Cleanup happened");
+
+				printList(2);
+			}
+			else
+			{
+				MessageBox.Show("Cleanup didn't happen");
+				//do nothing
+			}
+		}
+
+		private void printList(int fountainIndex)
+		{
+			switch (fountainIndex)
+			{
+				case 1:
+					currentFtnList = savedFountain1;
+					break;
+				case 2:
+					currentFtnList = savedFountain2;
+					break;
+				case 3:
+					currentFtnList = savedFountain3;
+					break;
+				case 4:
+					currentFtnList = savedFountain4;
+					break;
+				case 5:
+					currentFtnList = savedFountain5;
+					break;
+				default: //this should never occur!!!
+					currentFtnList = savedFountain1;
+					break;
+			}
+
+			for (int i = 0; i < currentFtnList.Count; i++) //for each row
+			{
+				totalLoadedTime = currentFtnList.ElementAt(0).ElementAt(0); //TODO: this is either not filling up or accessed incorrectly
+				loadedTime = currentFtnList[0][1]; //currentFtnList[i][1].ToString();
+				loadedPower = currentFtnList[0][2];//currentFtnList[i][2].ToString();
+				loadedColor = currentFtnList[0][3];//currentFtnList[i][3].ToString();
+
+				cmdViewer.Rows.Add(totalLoadedTime,loadedTime,loadedPower,loadedColor);
 			}
 		}
 
@@ -423,17 +489,20 @@ namespace mwoc_programmer
 					break;
 			}
 
-			for(int i = 0; i < cmdViewer.RowCount-1; i++) //outer loop grabs the row
+			//look at the row, grab the data needed in dataToSave
+			//add dataToSave to the big list then move on to next row
+			for(int i = 0; i < cmdViewer.RowCount-1; i++)
 			{
-				for(int x = 0; x < 4; x++) //inner loop grabs the data and shoves it into list
+				for(int x = 0; x < 3; x++)
 				{
-					currentFtnList[i].Add(cmdViewer.Rows[i].Cells[x].Value.ToString());
+					dataToSave.Add(cmdViewer.Rows[i].Cells[x].Value.ToString());
 				}
+				currentFtnList.Add(dataToSave);
+
+				dataToSave.Clear();
 			}
 
 			cmdViewer.Rows.Clear();
-
-			MessageBox.Show(currentFtnList[0][1].ToString());
 		}
 
 
@@ -463,5 +532,7 @@ namespace mwoc_programmer
 
 			return result;
 		}
+
+		
 	}
 }
